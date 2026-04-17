@@ -3,7 +3,7 @@ class Product < ApplicationRecord
     has_many :subscribers, dependent: :destroy
     has_rich_text :description
     has_one_attached :featured_image
-    validates :name, presence:true
+    validates :name, presence:true, uniqueness:{case_sensitive:false}
     validates :inventory_count, numericality: {greater_than_or_equal_to: 0}
     
   
